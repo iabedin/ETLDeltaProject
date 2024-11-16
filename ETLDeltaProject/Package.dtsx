@@ -1,0 +1,892 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/15/2024 9:14:06 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-KGAQTDI"
+  DTS:CreatorName="DESKTOP-KGAQTDI\iabed"
+  DTS:DTSID="{51BF769E-BBF4-4EE1-92E6-4FEE0ADFDF97}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{14C57C2F-2F5F-400A-990F-954A19F31E15}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KGAQTDI.ETLWork]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9EAB12AB-4E09-42E0-AF26-585FB4BFE1B8}"
+      DTS:ObjectName="DESKTOP-KGAQTDI.ETLWork">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-KGAQTDI;Initial Catalog=ETLWork;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{9EAB12AB-4E09-42E0-AF26-585FB4BFE1B8}DESKTOP-KGAQTDI.ETLWork;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KGAQTDI.ETLworkdestination]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A75865F8-D465-45B2-B9F8-C5CEE14FD781}"
+      DTS:ObjectName="DESKTOP-KGAQTDI.ETLworkdestination">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-KGAQTDI;Initial Catalog=ETLworkdestination;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{A75865F8-D465-45B2-B9F8-C5CEE14FD781}DESKTOP-KGAQTDI.ETLworkdestination;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KGAQTDI.ETLworkdestination 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3CC85554-01C5-4233-9630-BFDBED916DFA}"
+      DTS:ObjectName="DESKTOP-KGAQTDI.ETLworkdestination 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-KGAQTDI;Initial Catalog=ETLworkdestination;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{3CC85554-01C5-4233-9630-BFDBED916DFA}DESKTOP-KGAQTDI.ETLworkdestination 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-KGAQTDI.ETLworkdestination 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3E58A437-6B7E-46E5-AD2D-C6EDA54A4C92}"
+      DTS:ObjectName="DESKTOP-KGAQTDI.ETLworkdestination 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-KGAQTDI;Initial Catalog=ETLworkdestination;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{3E58A437-6B7E-46E5-AD2D-C6EDA54A4C92}DESKTOP-KGAQTDI.ETLworkdestination 2;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\IncrementalDataLoan"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B80162B1-9028-4583-B93C-7433FC8F328D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="IncrementalDataLoan"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\IncrementalDataLoan\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Employee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Employee]) [refTable]
+where [refTable].[EmployeeID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="EmployeeID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FirstName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="LastName" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="JobTitle" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Department" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DateOfBirth" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DateHired" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Salary" dataType="DT_NUMERIC" length="0" precision="18" scale="2" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[EmployeeID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\IncrementalDataLoan\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KGAQTDI.ETLworkdestination 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KGAQTDI.ETLworkdestination 1]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\IncrementalDataLoan\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\IncrementalDataLoan\Lookup.Inputs[Lookup Input].Columns[EmployeeID]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeID"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[EmployeeID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">EmployeeID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\IncrementalDataLoan\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\IncrementalDataLoan\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\Lookup.Outputs[Lookup Match Output].Columns[EmployeeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\IncrementalDataLoan\Lookup.Outputs[Lookup Match Output].Columns[EmployeeID]"
+                      name="EmployeeID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">EmployeeID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\IncrementalDataLoan\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\IncrementalDataLoan\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\IncrementalDataLoan\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\IncrementalDataLoan\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\IncrementalDataLoan\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\IncrementalDataLoan\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination ETL Work Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Employee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KGAQTDI.ETLworkdestination]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KGAQTDI.ETLworkdestination]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].Columns[EmployeeID]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeID"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[EmployeeID]" />
+                    <inputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].Columns[JobTitle]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="JobTitle"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[JobTitle]"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[JobTitle]" />
+                    <inputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].Columns[Department]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Department"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[Department]" />
+                    <inputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].Columns[DateOfBirth]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="DateOfBirth"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[DateOfBirth]" />
+                    <inputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].Columns[DateHired]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="DateHired"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateHired]"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[DateHired]" />
+                    <inputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].Columns[Salary]"
+                      cachedDataType="numeric"
+                      cachedName="Salary"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[Salary]"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[Salary]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                      dataType="i4"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[JobTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="JobTitle" />
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[Department]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Department" />
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                      dataType="wstr"
+                      length="10"
+                      name="DateOfBirth" />
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateHired]"
+                      dataType="wstr"
+                      length="10"
+                      name="DateHired" />
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input].ExternalColumns[Salary]"
+                      dataType="numeric"
+                      name="Salary"
+                      precision="18"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\IncrementalDataLoan\OLE DB Source ETLWork"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source ETLWork"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Employee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-KGAQTDI.ETLWork]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-KGAQTDI.ETLWork]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[EmployeeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[EmployeeID]"
+                      name="EmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[JobTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[JobTitle]"
+                      length="50"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[JobTitle]"
+                      name="JobTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[Department]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[Department]"
+                      length="50"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[Department]"
+                      name="Department"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[DateOfBirth]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[DateOfBirth]"
+                      length="10"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[DateOfBirth]"
+                      name="DateOfBirth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[DateHired]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[DateHired]"
+                      length="10"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[DateHired]"
+                      name="DateHired"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[Salary]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[Salary]"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].Columns[Salary]"
+                      name="Salary"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      dataType="i4"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[JobTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="JobTitle" />
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[Department]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Department" />
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[DateOfBirth]"
+                      dataType="wstr"
+                      length="10"
+                      name="DateOfBirth" />
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[DateHired]"
+                      dataType="wstr"
+                      length="10"
+                      name="DateHired" />
+                    <externalMetadataColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output].ExternalColumns[Salary]"
+                      dataType="numeric"
+                      name="Salary"
+                      precision="18"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      dataType="i4"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[JobTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[JobTitle]"
+                      name="JobTitle" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[Department]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[Department]"
+                      name="Department" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[DateOfBirth]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[DateOfBirth]"
+                      name="DateOfBirth" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[DateHired]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[DateHired]"
+                      name="DateHired" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[Salary]"
+                      dataType="numeric"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[Salary]"
+                      name="Salary"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\IncrementalDataLoan.Paths[Lookup No Match Output]"
+              endId="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\IncrementalDataLoan\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\IncrementalDataLoan.Paths[OLE DB Source Output]"
+              endId="Package\IncrementalDataLoan\Lookup.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\IncrementalDataLoan\OLE DB Source ETLWork.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="177.6,41.6"
+          Id="Package\IncrementalDataLoan"
+          TopLeft="87.499995219211,53.7333329596784" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\IncrementalDataLoan">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="198.4,41.6"
+          Id="Package\IncrementalDataLoan\OLE DB Source ETLWork"
+          TopLeft="91.666661658221,24.2666664979193" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\IncrementalDataLoan\Lookup"
+          TopLeft="329.166648681794,110.933332561917" />
+        <EdgeLayout
+          Id="Package\IncrementalDataLoan.Paths[OLE DB Source Output]"
+          TopLeft="190.866661658221,65.8666664979193">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="194.699987023573,45.0666660639975"
+              Start="0,0"
+              End="194.699987023573,37.5666660639975">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5333330319987" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5333330319987"
+                    Point2="0,22.5333330319987"
+                    Point3="4,22.5333330319987" />
+                  <mssgle:LineSegment
+                    End="190.699987023573,22.5333330319987" />
+                  <mssgle:CubicBezierSegment
+                    Point1="190.699987023573,22.5333330319987"
+                    Point2="194.699987023573,22.5333330319987"
+                    Point3="194.699987023573,26.5333330319987" />
+                  <mssgle:LineSegment
+                    End="194.699987023573,37.5666660639975" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="202.4,41.6"
+          Id="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination"
+          TopLeft="91.6666616582211,233.133331712153" />
+        <EdgeLayout
+          Id="Package\IncrementalDataLoan.Paths[Lookup No Match Output]"
+          TopLeft="385.566648681794,152.533332561917">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-192.699987023573,80.5999991502364"
+              Start="0,0"
+              End="-192.699987023573,73.0999991502364">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.2999995751182" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.2999995751182"
+                    Point2="0,40.2999995751182"
+                    Point3="-4,40.2999995751182" />
+                  <mssgle:LineSegment
+                    End="-188.699987023573,40.2999995751182" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-188.699987023573,40.2999995751182"
+                    Point2="-192.699987023573,40.2999995751182"
+                    Point3="-192.699987023573,44.2999995751182" />
+                  <mssgle:LineSegment
+                    End="-192.699987023573,73.0999991502364" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-152.156380230536,45.2999995751182,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\IncrementalDataLoan\OLE DB Source ETLWork">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\IncrementalDataLoan\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Employee]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\IncrementalDataLoan\OLE DB Destination ETL Work Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
